@@ -10,8 +10,10 @@ public class Main {
             System.out.println("\n--- Banking System ---");
             System.out.println("1. Create Account");
             System.out.println("2. Deposit");
-            System.out.println("3. Exit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Exit");
             System.out.print("Choose option: ");
+
 
 
             int choice = scanner.nextInt();
@@ -41,6 +43,17 @@ public class Main {
                 }
             }
             else if (choice == 3) {
+                System.out.print("Enter account number: ");
+                int accNo = scanner.nextInt();
+
+                Account account = bank.getAccount(accNo);
+                if (account != null) {
+                    System.out.print("Enter withdrawal amount: ");
+                    double amount = scanner.nextDouble();
+                    account.withdraw(amount);
+                }
+            }
+            else if (choice == 4) {
                 System.out.println("Thank you for using the system!");
                 break;
             }
