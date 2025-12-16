@@ -9,8 +9,10 @@ public class Main {
         while (true) {
             System.out.println("\n--- Banking System ---");
             System.out.println("1. Create Account");
-            System.out.println("2. Exit");
+            System.out.println("2. Deposit");
+            System.out.println("3. Exit");
             System.out.print("Choose option: ");
+
 
             int choice = scanner.nextInt();
 
@@ -28,9 +30,21 @@ public class Main {
                 bank.createAccount(accNo, name, balance);
             }
             else if (choice == 2) {
+                System.out.print("Enter account number: ");
+                int accNo = scanner.nextInt();
+
+                Account account = bank.getAccount(accNo);
+                if (account != null) {
+                    System.out.print("Enter deposit amount: ");
+                    double amount = scanner.nextDouble();
+                    account.deposit(amount);
+                }
+            }
+            else if (choice == 3) {
                 System.out.println("Thank you for using the system!");
                 break;
             }
+
             else {
                 System.out.println("Invalid option");
             }
