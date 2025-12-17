@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Welcome to Simple Banking System");
 
         Bank bank = BankStorage.load();
+        BankService service = new BankService(bank);
+
 
         Scanner scanner = new Scanner(System.in);
 
@@ -33,7 +36,8 @@ public class Main {
                 System.out.print("Enter initial balance: ");
                 double balance = scanner.nextDouble();
 
-                bank.createAccount(accNo, name, balance);
+                service.createAccount(accNo, name, balance);
+
             }
 
             else if (choice == 2) {
@@ -44,7 +48,8 @@ public class Main {
                 if (account != null) {
                     System.out.print("Enter deposit amount: ");
                     double amount = scanner.nextDouble();
-                    account.deposit(amount);
+                    service.deposit(accNo, amount);
+
                 }
             }
 
@@ -56,14 +61,16 @@ public class Main {
                 if (account != null) {
                     System.out.print("Enter withdrawal amount: ");
                     double amount = scanner.nextDouble();
-                    account.withdraw(amount);
+                    service.withdraw(accNo, amount);
+
                 }
             }
 
             else if (choice == 4) {
                 System.out.print("Enter account number: ");
                 int accNo = scanner.nextInt();
-                bank.checkBalance(accNo);
+                  service.checkBalance(accNo);
+
             }
             else if (choice == 5) {
                 System.out.print("Enter account number: ");
@@ -71,11 +78,12 @@ public class Main {
 
                 Account account = bank.getAccount(accNo);
                 if (account != null) {
-                    account.printTransactionHistory();
+                    service.showTransactions(accNo);
+
                 }
             }
             else if (choice == 6) {
-                BankStorage.save(bank);
+                BankStorage.save(service.getBank());
                 System.out.println("Thank you for using the system!");
                 break;
             }
