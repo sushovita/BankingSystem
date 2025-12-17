@@ -12,6 +12,7 @@ public class Main {
             System.out.println("2. Deposit");
             System.out.println("3. Withdraw");
             System.out.println("4. Exit");
+            System.out.println("5. Check Balance");
             System.out.print("Choose option: ");
 
 
@@ -57,7 +58,18 @@ public class Main {
                 System.out.println("Thank you for using the system!");
                 break;
             }
+            else if (choice == 5){
+                    System.out.print("Enter account number: ");
+                    int accNo = scanner.nextInt();
+                    try {
+                        double bal = bank.checkBalance(accNo);
+                        System.out.println("Current balance: " + bal);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
 
+            }
             else {
                 System.out.println("Invalid option");
             }

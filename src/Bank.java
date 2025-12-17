@@ -32,6 +32,13 @@ public class Bank {
         }
         return accounts.get(accountNumber);
     }
+    public double checkBalance(int accountNumber) {
+        Account acc = accounts.get(accountNumber);
+        if (acc == null) {
+            throw new IllegalArgumentException("Account not found");
+        }
+        return acc.getBalance();
+    }
 
 }
 

@@ -33,4 +33,8 @@ public class Account {
         balance -= amount;
         System.out.println("Withdrawn: " + amount);
     }
+    public double getBalance() {
+        return balance;
+    }
+
 }
