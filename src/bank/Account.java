@@ -1,8 +1,10 @@
 package bank;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Account {
+public class Account implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int accountNumber;
     private String name;
@@ -49,10 +51,8 @@ public class Account {
             System.out.println("No transactions yet.");
             return;
         }
-
+        System.out.println("---- Transaction History ----");
         for (Transaction t : transactions) {
-            System.out.println("---- Transaction History ----");
-
             System.out.println(t);
         }
     }

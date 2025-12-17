@@ -1,8 +1,10 @@
 package bank;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Bank {
+public class Bank implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private HashMap<Integer, Account> accounts;
 
