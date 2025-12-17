@@ -51,6 +51,8 @@ public class Account {
         }
 
         for (Transaction t : transactions) {
+            System.out.println("---- Transaction History ----");
+
             System.out.println(t);
         }
     }
