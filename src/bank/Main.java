@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Bank bank = new Bank();
+        Bank bank = BankStorage.load();
+
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -74,9 +75,11 @@ public class Main {
                 }
             }
             else if (choice == 6) {
+                BankStorage.save(bank);
                 System.out.println("Thank you for using the system!");
                 break;
             }
+
 
 
 
