@@ -1,3 +1,5 @@
+package bank;
+
 import java.util.HashMap;
 
 public class Bank {
@@ -32,13 +34,15 @@ public class Bank {
         }
         return accounts.get(accountNumber);
     }
-    public double checkBalance(int accountNumber) {
+
+    public void checkBalance(int accountNumber) {
         Account acc = accounts.get(accountNumber);
         if (acc == null) {
-            throw new IllegalArgumentException("Account not found");
+            System.out.println("Account not found");
+        } else {
+            System.out.println("Current balance: " + acc.getBalance());
         }
-        return acc.getBalance();
     }
-
 }
+
 
